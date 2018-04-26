@@ -10,11 +10,31 @@
 </head>
 <body ng-app = "FoodControllerApp" ng-controller="FoodController as vm">
     <h1>{{vm.foodSomething}}</h1>
-    <input type="text" ng-model="vm.foodSomething">
     <input type="text" placeholder="name" ng-model="vm.newFood.name">
-    <input type="text" placeholder="deliciousness" ng-model="vm.newFood.deliciousness_rating">
-    <input type="text" placeholder="is Hot?" ng-model="vm.newFood.is_hot">
+    <input type="number" max="10" min="1" ng-model="vm.newFood.deliciousness_rating"></td>
+    <select ng-model="vm.newFood.is_hot">
+        <option value = true>True</option>
+        <option value = false>False</option>
+    </select>
     <button ng-click="vm.submit()">Submit</button>
-    {{vm.newFood}}
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Deliciousness Rating</th>
+                <th>Hot?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="food in vm.foods"> <!-- run the loop and use in instead of of / don't forget to define self on the client side-->
+                <td><input type="text" placeholder="Name" ng-model="food.name"></td>
+                <td><input type="number" max="10" min="1" placeholder="Deliciousness" ng-model="food.deliciousness_rating">
+                <td><input type="text" placeholder="Hot" ng-model="food.id_hot"></td>
+                <td><button ng-click="vm.updateButton(food)">Save</button></td>
+                <td><button ng-click="vm.deleteButton(food)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
