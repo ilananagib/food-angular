@@ -7,12 +7,13 @@
     "body": "^5.1.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "mongoose": "^5.0.16"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node server/server.js"
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
